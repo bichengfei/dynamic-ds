@@ -34,6 +34,7 @@ public class TenantDataSourceFactory {
         }
         Map<String, String> map = new HashMap<>();
         if (TenantHolder.isDefault()) {
+            map.put(DruidDataSourceFactory.PROP_NAME, "默认租户数据库，不使用");
             map.put(DruidDataSourceFactory.PROP_URL, dataSourceProperties.getUrl());
             map.put(DruidDataSourceFactory.PROP_DRIVERCLASSNAME, dataSourceProperties.getDriverClassName());
             map.put(DruidDataSourceFactory.PROP_USERNAME, dataSourceProperties.getUsername());
@@ -41,6 +42,7 @@ public class TenantDataSourceFactory {
         } else {
             DataSourceConf conf = dataSourceConfDao.findByTenantId(tenantId).orElseThrow(() -> new RuntimeException("租户不存在"));
 
+            map.put(DruidDataSourceFactory.PROP_NAME, String.valueOf(tenantId));
             map.put(DruidDataSourceFactory.PROP_URL, conf.getUrl());
             map.put(DruidDataSourceFactory.PROP_DRIVERCLASSNAME, conf.getDriverClassName());
             map.put(DruidDataSourceFactory.PROP_USERNAME, conf.getUsername());
@@ -59,6 +61,7 @@ public class TenantDataSourceFactory {
     DataSource getDs(int tenantId) throws Exception {
         DataSourceConf entity = dataSourceConfDao.findByTenantId(tenantId).orElseThrow(() -> new RuntimeException("租户不存在"));
         Map<String, String> map = new HashMap<>();
+        map.put(DruidDataSourceFactory.PROP_NAME, String.valueOf(tenantId));
         map.put(DruidDataSourceFactory.PROP_URL, entity.getUrl());
         map.put(DruidDataSourceFactory.PROP_DRIVERCLASSNAME, entity.getDriverClassName());
         map.put(DruidDataSourceFactory.PROP_USERNAME, entity.getUsername());

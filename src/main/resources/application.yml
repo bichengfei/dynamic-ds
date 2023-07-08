@@ -2,10 +2,11 @@ server:
   port: 8080
 spring:
   datasource:
+    name: '主数据库'
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/main
+    url: jdbc:mysql://43.143.198.241:3306/main
     username: root
-    password: root2022
+    password: 12345abc
 
   jpa:
     hibernate:
