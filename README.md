@@ -80,8 +80,8 @@
         │               └── TenantIdInterceptor.java
         └── resources
             └── application.yml
-    ├── README.md
 ├── pom.xml
+├── README.md
 ```
 ## 项目说明
 ### 准备知识
