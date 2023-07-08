@@ -3,8 +3,8 @@
 在不重启服务的情况下，通过在租户数据库表中，添加数据库的 driverClassName、url、username、password 配置，既可动态新增数据源
 ## 项目启动条件
 |  框架   | 版本  |
-| Spring Boot  | 3.1 |
 |  ----  | ----  |
+| Spring Boot  | 3.1 |
 | JDK  | 20 |
 | MySQL  | 8.0 |
 ## 演示功能
@@ -13,7 +13,7 @@
 + 分别创建两个租户数据库`create database tenant001; create database tenant002;`
 + 启动`DynamicDsApplication.java`  
   <img src="./img/run-01.png" width="300px">
-+ 打开在线文档地址，`http://localhost:8080/doc.html`  
++ 打开在线文档地址，[http://localhost:8080/doc.html](http://localhost:8080/doc.html)  
   <img src="./img/datasource-01.png" width="300px">
 ### 初始化租户数据库表结构
 + 分别录入租户1、租户2配置  
@@ -37,7 +37,7 @@
   <img src="./img/tenant002-2.png" width="300px">
 + 查看租户表中数据  
   <img src="./img/tenant.png" width="300px">
-+ 访问`http://localhost:8080/druid/doc.html`，admin/admin，查看数据源情况
++ 访问 [http://localhost:8080/druid/doc.html](http://localhost:8080/druid/doc.html)，admin/admin，查看数据源情况  
   <img src="./img/druid.png" width="300px">
 ## 项目结构
 ```shell
@@ -85,7 +85,7 @@
 ```
 ## 项目说明
 ### 准备知识
-如果想看懂这个项目，需要开发者先明白如何在项目中配置多数据源，可参考 https://www.cnblogs.com/ll409546297/p/10496346.html，只有明白多数据源的配置原理，才能明白如何动态配置多数据源
+如果想看懂这个项目，需要开发者先明白如何在项目中配置多数据源，可参考 [https://www.cnblogs.com/ll409546297/p/10496346.html](https://www.cnblogs.com/ll409546297/p/10496346.html)，只有明白多数据源的配置原理，才能明白如何动态配置多数据源
 ### 原理概述
 整个项目重要的地方只有两块，都在`cn.bcf.config`文件夹下
 第一块是如何区分不同租户，这个地方是在 header 里面放置了 tenantId 参数，表示租户 id，然后再搭配拦截器`cn.bcf.interceptor.TenantIdInterceptor.java`和`cn.bcf.conf.TenantHolder.java`，对 tenantId 进行获取和会话存储
@@ -96,4 +96,4 @@
 ### 这个项目能直接应用生产吗
 我这里只是对思路进行了实现，生产的话需要自己做下适配及改造
 ### 持久层框架必须使用 Spring Data JPA 吗
-目前只针对 JPA 做了实现，如果需要使用 Mybatis，需要自己对项目做下改造，思路其实是一样的。（如果需要，留下 issues，或者给我发送邮件，有时间可以增加 Mybatis 版本）
+目前只针对 JPA 做了实现，如果需要使用 Mybatis，需要自己对项目做下改造，思路其实是一样的
