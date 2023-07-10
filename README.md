@@ -1,6 +1,6 @@
 # Spring Boot + JPA 动态多数据源
 ## 这个项目能做什么
-在不重启服务的情况下，通过在租户数据库表中，添加数据库的 driverClassName、url、username、password 配置，既可动态新增数据源
+针对多租户系统，在不重启服务的情况下，通过在租户数据库表中，添加数据库的 driverClassName、url、username、password 配置，既可动态新增数据源
 ## 项目启动条件
 |  框架   | 版本  |
 |  ----  | ----  |
