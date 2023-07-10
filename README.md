@@ -106,5 +106,5 @@
 1. 可以不使用`DruidDataSource`吗  
    需要自行改造，很简单的
 
-1. 为什么不使用 `AbstractRoutingDataSource` 或者 `dynamic-datasource-spring-boot-starter`
+1. 为什么不使用 `AbstractRoutingDataSource` 或者 `dynamic-datasource-spring-boot-starter`  
    这个项目只是为了提出思路，用来学习。并且我不喜欢过度封装，使用很简单的一两百行代码，就可以满足我的需求，性价比很高
