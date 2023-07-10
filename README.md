@@ -92,16 +92,16 @@
 2. 如何进行动态获取 DataSource，这个地方是重写了`javax.sql.DataSource`，具体实现在`cn.bcf.conf.tenant`文件夹下  
 ## FAQ
 1. 租户数据库只能从数据库读取吗  
-  目前实现中，只有数据库版本，如需从配置文件或者配置中心读取，只需要对 `TenantDataSourceFactory.java` 中的配置获取方式进行改造，很简单的  
+  需要自行改造。目前实现中，只有数据库版本，如需从配置文件或者配置中心读取，只需要对 `TenantDataSourceFactory.java` 中的配置获取方式进行改造  
 
 1. 这个项目能直接应用生产吗  
    我这里只是对思路进行了实现，生产的话需要自己做下适配及改造
    
 1. 持久层框架必须使用 Spring Data JPA 吗  
-  目前只针对 JPA 做了实现，如果需要使用 Mybatis，需要自己对项目做下改造，思路其实是一样的
+  需要自行改造。目前只针对 JPA 做了实现，如果需要使用 Mybatis，思路其实是一样的
 
 1. 可以配置数据库连接池大小吗  
-   这个 demo 项目不可以，这个示例为了简单，所以没有设置过多参数，如果需要，可以修改`cn.bcf.conf.tenant.TenantDataSourceFactory.java`中的代码，增加数据源参数
+   需要自行改造。可以修改`cn.bcf.conf.tenant.TenantDataSourceFactory.java`中的代码，增加数据源参数
 
 1. 可以不使用`DruidDataSource`吗  
    需要自行改造，很简单的
