@@ -91,14 +91,10 @@
 1. 如何区分不同租户，这个地方是在 header 里面放置了 tenantId 参数，表示租户 id，然后再搭配拦截器`cn.bcf.interceptor.TenantIdInterceptor.java`和`cn.bcf.conf.TenantHolder.java`，对 tenantId 进行获取和会话存储
 2. 如何进行动态获取 DataSource，这个地方是重写了`javax.sql.DataSource`，具体实现在`cn.bcf.conf.tenant`文件夹下  
 ## FAQ
-1 租户数据库只能从数据库读取吗  
-
+1. 租户数据库只能从数据库读取吗  
   目前实现中，只有数据库版本，如需从配置文件或者配置中心读取，只需要对 `TenantDataSourceFactory.java` 中的配置获取方式进行改造，很简单的  
 
-2 这个项目能直接应用生产吗  
-
-  我这里只是对思路进行了实现，生产的话需要自己做下适配及改造  
-
-3 持久层框架必须使用 Spring Data JPA 吗  
-
+1. 这个项目能直接应用生产吗  
+   我这里只是对思路进行了实现，生产的话需要自己做下适配及改造 
+1. 持久层框架必须使用 Spring Data JPA 吗  
   目前只针对 JPA 做了实现，如果需要使用 Mybatis，需要自己对项目做下改造，思路其实是一样的
